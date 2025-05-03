@@ -1,6 +1,8 @@
-﻿namespace YoutubeApi.Domain.Entities
+﻿using YoutubeApi.Domain.Common;
+
+namespace YoutubeApi.Domain.Entities
 {
-    public class Brand
+    public class Brand : EntityBase
     {
         public Brand()
         {
