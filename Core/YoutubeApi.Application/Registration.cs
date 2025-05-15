@@ -1,5 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 using System.Reflection;
+using YoutubeApi.Application.Beheviors;
 using YoutubeApi.Application.Exceptions;
 
 namespace YoutubeApi.Application
@@ -13,6 +17,11 @@ namespace YoutubeApi.Application
             services.AddTransient<ExceptionMiddleware>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(asssembly));
+
+            services.AddValidatorsFromAssembly(asssembly);
+            ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr-TR");
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
         }
     }
 }
