@@ -10,5 +10,4 @@ namespace YoutubeApi.Mapper
             services.AddSingleton<IMapper, AutoMapper.Mapper>();
         }
     }
-
 }
