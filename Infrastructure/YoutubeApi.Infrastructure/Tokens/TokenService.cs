@@ -54,7 +54,7 @@ namespace YoutubeApi.Infrastructure.Tokens
             return Convert.ToBase64String(randomNumber);
         }
 
-        public ClaimsPrincipal GetPrincipalFromExpiredToken(string? token)
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)
         {
             TokenValidationParameters tokenValidationParameters = new()
             {
