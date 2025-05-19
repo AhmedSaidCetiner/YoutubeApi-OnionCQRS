@@ -25,6 +25,8 @@ namespace YoutubeApi.Application
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr-TR");
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RedisCacheBehevior<,>));
         }
 
         private static IServiceCollection AddRulesFromAssemblyContaining(
